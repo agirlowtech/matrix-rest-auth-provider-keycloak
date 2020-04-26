@@ -47,6 +47,12 @@ docker run -it --rm --name rauthprovider --env-file ".env" -p "8003:8080" rauthp
 - Edit your `.env` file accordingly 
 - You can copy paste template with `cp .env.template .env`
 
+## Usage
+
+Run your container with `docker-compose up -d`
+
+Stop with `docker-compose down`
+
 # Resources
 
 -  [Synapse REST Password provider](https://github.com/ma1uta/matrix-synapse-rest-password-provider) : allows to validate a password for a given username and return a user profile using an existing backend (Keycloak in our case, via OpenID)

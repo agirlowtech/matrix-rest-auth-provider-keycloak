@@ -42,7 +42,7 @@ case class RestAuthProvider(kClient: KeycloakOIDClient.Service, kConfig: Keycloa
       r <- Ok(s"""|{
                   |  "auth": {
                   |    "success": true,
-                  |    "mxid": "${mxid},
+                  |    "mxid": "${mxid}",
                   |    "profile": {
                   |      "display_name": "${displayName}"
                   |    }

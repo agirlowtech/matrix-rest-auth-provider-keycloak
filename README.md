@@ -53,10 +53,10 @@ Run your container with `docker-compose up -d`
 
 Stop with `docker-compose down`
 
-# Resources
+## Resources
 
 -  [Synapse REST Password provider](https://github.com/ma1uta/matrix-synapse-rest-password-provider) : allows to validate a password for a given username and return a user profile using an existing backend (Keycloak in our case, via OpenID)
 
-# Credits
+## Credits
 
 - [hseeberger/scala-sbt](https://github.com/hseeberger/scala-sbt)

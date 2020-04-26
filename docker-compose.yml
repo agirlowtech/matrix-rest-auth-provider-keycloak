@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  rauthprovider:
+    container_name: rauthprovider
+    build: 
+      context: . 
+    image: rauthprovider
+    restart: unless-stopped
+    ports:
+      - "8003:8080"
+    environment:
+      - SERVER_PORT
+      - KEYCLOAK_BASE_URL
+      - KEYCLOAK_REALM
+      - KEYCLOAK_CLIENT_ID
+      - KEYCLOAK_CLIENT_SECRET
+      - MATRIX_DOMAIN

@@ -1,0 +1,11 @@
+.local
+.git
+
+scala/.idea
+scala/project/target/
+scala/project/project
+scala/target/
+
+target/
+
+.env

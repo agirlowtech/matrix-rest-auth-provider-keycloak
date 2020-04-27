@@ -107,7 +107,7 @@ object KeycloakOIDClient {
 
         override def token(username: Username, password: String): IO[KeycloakOIDError, AuthResponse] =
           for {
-            _ <- log.info(s"requesting access_token for $username")
+            _ <- log.info(s"requesting access_token for ${username.value}")
 
             params = Map(
               "client_id" -> config.clientId,
@@ -124,12 +124,12 @@ object KeycloakOIDClient {
 
             hiddenParams = params.updated("password", "**********").updated("client_secret", "**********")
 
-            _ <- log.info(s"sending request with params ${hiddenParams} | body = ${req.body}")
+            _ <- log.info(s"sending request with params ${hiddenParams.asJson.noSpaces}")
 
             resp <- sttpClient.send(req).mapError(e => BadResponseError(e.getMessage))
             dec <- IO fromEither decodeTokenResponse(resp)
 
-            _ <- log.info(s"retrieved access_token for $username")
+            _ <- log.info(s"retrieved access_token for ${username.value}")
           } yield dec
 
         override def userinfo(username: Username, access_token: String): IO[KeycloakOIDError, UserInfo] =
